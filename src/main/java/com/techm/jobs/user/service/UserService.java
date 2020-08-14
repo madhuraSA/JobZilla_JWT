@@ -26,6 +26,13 @@ public class UserService {
 	
 	public void addOrganization(Organization org) {
 		organizationRepo.save(org);
+		
+		User user = new User();
+		user.setUserName(org.getEmail());
+		user.setPassword(org.getPassword());
+		user.setUserRole("Owner");
+		user.setOrgnaizationInd("Yes");
+		userRepo.save(user);
 	}
 	public List<Organization> getOrganizations() {
 		return organizationRepo.findAll();

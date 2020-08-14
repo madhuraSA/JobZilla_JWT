@@ -12,45 +12,45 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.techm.jobs.user.model.Organization;
 import com.techm.jobs.user.model.User;
-import com.techm.jobs.user.service.UserService;
+import com.techm.jobs.user.service.UserServiceImp;
 
 @RestController
 @RequestMapping(value = "/user")
 public class UserController{
 	
 @Autowired
-UserService userService;
+UserServiceImp userServiceImp;
 
 @RequestMapping(value = "/signup", method = RequestMethod.POST)
 public void addOrganizationDetails (@RequestBody Organization organization){
 	
 	
-	userService.addOrganization(organization); 
+	userServiceImp.addOrganization(organization); 
 	//return "Organization : "+org.getOrganizationName()+" has been added";
 }
 
 @RequestMapping(value = "/organization", method = RequestMethod.GET)
 @ResponseBody
 public List<Organization> getAllOrganization(){	 
-	return userService.getOrganizations(); 
+	return userServiceImp.getOrganizations(); 
 }
 
 @ResponseBody
 @RequestMapping(value = "/user", method = RequestMethod.POST)
 public void addUser (@RequestBody User user){
-		userService.addUser(user);
+	userServiceImp.addUser(user);
 	
 	}
 
 @ResponseBody
 @RequestMapping(value = "/user", method = RequestMethod.GET)
 public List<User> getAllUser(){	 
-	return userService.getUsers(); 
+	return userServiceImp.getUsers(); 
 }
 
 @ResponseBody
 @RequestMapping(value = "/login", method = RequestMethod.PUT)
 public String login(@RequestParam String userName, @RequestParam String password){	 
-	return userService.login(userName, password); 
+	return userServiceImp.login(userName, password); 
 }
 }

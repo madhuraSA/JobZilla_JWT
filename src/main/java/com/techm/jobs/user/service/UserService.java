@@ -1,57 +1,16 @@
 package com.techm.jobs.user.service;
 
-
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import com.techm.jobs.user.dao.OrganizationRepository;
-import com.techm.jobs.user.dao.UserRepository;
 import com.techm.jobs.user.model.Organization;
 import com.techm.jobs.user.model.User;
 
-@Service
+public interface UserService {
 
-public class UserService {
-	@Autowired
-	 private UserRepository userRepo;
+	public void addUser(User user);
+	public void addOrganization(Organization org);
+	public List<Organization> getOrganizations();
+	public List<User> getUsers();
+	public String login(String userName, String password);
 	
-	@Autowired
-	 private OrganizationRepository organizationRepo;
-
-	public void addUser(User user) {
-		userRepo.save(user);
-	}
-	
-	public void addOrganization(Organization org) {
-		organizationRepo.save(org);
-		
-		User user = new User();
-		user.setUserName(org.getEmail());
-		user.setPassword(org.getPassword());
-		user.setUserRole("Owner");
-		user.setOrgnaizationInd("Yes");
-		userRepo.save(user);
-	}
-	public List<Organization> getOrganizations() {
-		return organizationRepo.findAll();
-	}
-	public List<User> getUsers() {
-		return userRepo.findAll();
-	}
-
-	public String login(String userName, String password) {
-		// TODO Auto-generated method stub
-		User user=userRepo.findByUserName(userName);
-		if(user!=null)
-			return user.getUserRole();
-		else {
-			Organization organization=organizationRepo.findByEmail(userName);
-			if(organization!=null)
-				return "Owner";
-			else
-				return null;
-		}
-	}
 }

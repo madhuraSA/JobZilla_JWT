@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.techm.jobs.user.configuration.CsvUtils;
 import com.techm.jobs.user.dao.CandidateRepository;
 import com.techm.jobs.user.model.Candidate;
+import com.techm.jobs.user.utility.CsvUtils;
 
 @Service
 public class CSVUploadService {

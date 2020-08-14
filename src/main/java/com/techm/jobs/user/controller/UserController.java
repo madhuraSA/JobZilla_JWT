@@ -3,6 +3,7 @@ package com.techm.jobs.user.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.techm.jobs.user.model.Organization;
+import com.techm.jobs.user.model.ResponseModel;
 import com.techm.jobs.user.model.User;
 import com.techm.jobs.user.service.UserServiceImp;
 
@@ -22,16 +24,14 @@ public class UserController{
 UserServiceImp userServiceImp;
 
 @RequestMapping(value = "/signup", method = RequestMethod.POST)
-public void addOrganizationDetails (@RequestBody Organization organization){
-	
-	
-	userServiceImp.addOrganization(organization); 
+public ResponseEntity<ResponseModel> addOrganizationDetails (@RequestBody Organization organization){
+	return  userServiceImp.addOrganization(organization); 
 	//return "Organization : "+org.getOrganizationName()+" has been added";
 }
 
 @RequestMapping(value = "/organization", method = RequestMethod.GET)
 @ResponseBody
-public List<Organization> getAllOrganization(){	 
+public ResponseEntity<ResponseModel> getAllOrganization(){	 
 	return userServiceImp.getOrganizations(); 
 }
 
@@ -50,7 +50,7 @@ public List<User> getAllUser(){
 
 @ResponseBody
 @RequestMapping(value = "/login", method = RequestMethod.PUT)
-public String login(@RequestParam String userName, @RequestParam String password){	 
+public ResponseEntity<ResponseModel> login(@RequestParam String userName, @RequestParam String password){	 
 	return userServiceImp.login(userName, password); 
 }
 }

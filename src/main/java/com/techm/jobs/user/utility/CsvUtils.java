@@ -17,11 +17,12 @@ import com.techm.jobs.user.model.Candidate;
 public class CsvUtils {
 	
 
-	 public static String TYPE = "text/csv";
+	 public static String TYPE = "csv";
 	 
 	  public static boolean hasCSVFormat(MultipartFile file) {
+		String extension = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf(".") + 1);
 
-	    if (!TYPE.equals(file.getContentType())) {
+	    if (!TYPE.equals(extension)) {
 	      return false;
 	    }
 

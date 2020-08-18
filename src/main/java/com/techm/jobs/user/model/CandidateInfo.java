@@ -27,6 +27,7 @@ public class CandidateInfo {
 	private CandidateEmploymentDetails candidateEmploymentDetails;
 	private CandidateLanguages candidateLanguages;
 	private CandidateEducationDetails candidateEducationDetails;
+	private CandidateCertificates candidateCertificates;
 	private CandidatePersonalDetails candidatePersonalDetails;
 	private CandidateDesiredCareerProfile candidateDesiredCareerProfile;
 	
@@ -114,6 +115,13 @@ public class CandidateInfo {
 	}
 	public void setCandidateEducationDetails(CandidateEducationDetails candidateEducationDetails) {
 		this.candidateEducationDetails = candidateEducationDetails;
+	}
+	
+	public CandidateCertificates getCandidateCertificates() {
+		return candidateCertificates;
+	}
+	public void setCandidateCertificates(CandidateCertificates candidateCertificates) {
+		this.candidateCertificates = candidateCertificates;
 	}
 	public CandidatePersonalDetails getCandidatePersonalDetails() {
 		return candidatePersonalDetails;

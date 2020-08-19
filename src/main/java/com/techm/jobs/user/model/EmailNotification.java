@@ -13,6 +13,7 @@ public class EmailNotification {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	
+	private Integer candidateId;
 	private Integer notificationId;
 	private boolean allowNotification = true;
 	private boolean successfulJobPost = true;
@@ -20,6 +21,14 @@ public class EmailNotification {
 	private boolean interviewAcceptedDeclined = true;
 	private boolean offerAcceptedDeclined = true;
 	private boolean newMatchesAlert = true;
+	
+	
+	public Integer getCandidateId() {
+		return candidateId;
+	}
+	public void setCandidateId(Integer candidateId) {
+		this.candidateId = candidateId;
+	}
 	public Integer getNotificationId() {
 		return notificationId;
 	}

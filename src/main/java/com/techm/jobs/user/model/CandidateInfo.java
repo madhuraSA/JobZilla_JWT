@@ -25,6 +25,9 @@ public class CandidateInfo {
 	private float currentCTC;
 	private float expectedCTC;
 	private Blob candidateImage;
+	private String currentRole;
+	private String address;
+	
 	public Integer getCandidateId() {
 		return candidateId;
 	}
@@ -85,16 +88,18 @@ public class CandidateInfo {
 	public void setCandidateImage(Blob candidateImage) {
 		this.candidateImage = candidateImage;
 	}
-	
-//	private CandidateSkills candidateSkills;
-//	private CandidateEmploymentDetails candidateEmploymentDetails;
-//	private CandidateLanguages candidateLanguages;
-//	private CandidateEducationDetails candidateEducationDetails;
-//	private CandidateCertificates candidateCertificates;
-//	private CandidatePersonalDetails candidatePersonalDetails;
-//	private CandidateDesiredCareerProfile candidateDesiredCareerProfile;
-//	
-	
+	public String getCurrentRole() {
+		return currentRole;
+	}
+	public void setCurrentRole(String currentRole) {
+		this.currentRole = currentRole;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
 	
 	
 	

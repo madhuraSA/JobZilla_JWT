@@ -11,10 +11,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.techm.jobs.user.model.Email;
 import com.techm.jobs.user.model.Organization;
 import com.techm.jobs.user.model.ResponseModel;
 import com.techm.jobs.user.model.User;
 import com.techm.jobs.user.service.UserServiceImp;
+import com.techm.jobs.user.utility.EmailUtility;
 
 @RestController
 @RequestMapping(value = "/user")
@@ -22,6 +24,9 @@ public class UserController{
 	
 @Autowired
 UserServiceImp userServiceImp;
+
+@Autowired
+EmailUtility emailUtility;
 
 @RequestMapping(value = "/signup", method = RequestMethod.POST)
 public ResponseEntity<ResponseModel> addOrganizationDetails (@RequestBody Organization organization){
@@ -53,4 +58,11 @@ public List<User> getAllUser(){
 public ResponseEntity<ResponseModel> login(@RequestParam String userName, @RequestParam String password){	 
 	return userServiceImp.login(userName, password); 
 }
+
+@RequestMapping(value = "/sendEmail", method = RequestMethod.POST)
+public void sendEmail (@RequestBody Email email) {
+	emailUtility.sendEmail(email);
+	
+}
+
 }

@@ -3,10 +3,12 @@ package com.techm.jobs.user.utility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
+import org.springframework.stereotype.Component;
 
 import com.techm.jobs.user.model.Email;
 import com.techm.jobs.user.model.EmailConfiguration;
 
+@Component
 public class EmailUtility {
 	@Autowired
 	EmailConfiguration emailConfig;
@@ -29,7 +31,7 @@ public class EmailUtility {
 		mailMessage.setFrom("madhura123@gmail.com");
 		mailMessage.setTo(email.getEmail());
 		mailMessage.setSubject("New mail from " + email.getEmail());
-		mailMessage.setText("Welcome to this amazing email application... :) " + " Hello... "+email.getName()+" !");
+		mailMessage.setText("Welcome to JobZilla  :) "  +"\n Please click on below link to activate your account..");
 		
 		//-- Send message
 		mailSender.send(mailMessage);

@@ -6,8 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "candidate_info")
 public class CandidateInfo {
 
 	@Id
@@ -23,15 +25,6 @@ public class CandidateInfo {
 	private float currentCTC;
 	private float expectedCTC;
 	private Blob candidateImage;
-	private CandidateSkills candidateSkills;
-	private CandidateEmploymentDetails candidateEmploymentDetails;
-	private CandidateLanguages candidateLanguages;
-	private CandidateEducationDetails candidateEducationDetails;
-	private CandidateCertificates candidateCertificates;
-	private CandidatePersonalDetails candidatePersonalDetails;
-	private CandidateDesiredCareerProfile candidateDesiredCareerProfile;
-	
-	
 	public Integer getCandidateId() {
 		return candidateId;
 	}
@@ -92,50 +85,15 @@ public class CandidateInfo {
 	public void setCandidateImage(Blob candidateImage) {
 		this.candidateImage = candidateImage;
 	}
-	public CandidateSkills getCandidateSkills() {
-		return candidateSkills;
-	}
-	public void setCandidateSkills(CandidateSkills candidateSkills) {
-		this.candidateSkills = candidateSkills;
-	}
-	public CandidateEmploymentDetails getCandidateEmploymentDetails() {
-		return candidateEmploymentDetails;
-	}
-	public void setCandidateEmploymentDetails(CandidateEmploymentDetails candidateEmploymentDetails) {
-		this.candidateEmploymentDetails = candidateEmploymentDetails;
-	}
-	public CandidateLanguages getCandidateLanguages() {
-		return candidateLanguages;
-	}
-	public void setCandidateLanguages(CandidateLanguages candidateLanguages) {
-		this.candidateLanguages = candidateLanguages;
-	}
-	public CandidateEducationDetails getCandidateEducationDetails() {
-		return candidateEducationDetails;
-	}
-	public void setCandidateEducationDetails(CandidateEducationDetails candidateEducationDetails) {
-		this.candidateEducationDetails = candidateEducationDetails;
-	}
 	
-	public CandidateCertificates getCandidateCertificates() {
-		return candidateCertificates;
-	}
-	public void setCandidateCertificates(CandidateCertificates candidateCertificates) {
-		this.candidateCertificates = candidateCertificates;
-	}
-	public CandidatePersonalDetails getCandidatePersonalDetails() {
-		return candidatePersonalDetails;
-	}
-	public void setCandidatePersonalDetails(CandidatePersonalDetails candidatePersonalDetails) {
-		this.candidatePersonalDetails = candidatePersonalDetails;
-	}
-	public CandidateDesiredCareerProfile getCandidateDesiredCareerProfile() {
-		return candidateDesiredCareerProfile;
-	}
-	public void setCandidateDesiredCareerProfile(CandidateDesiredCareerProfile candidateDesiredCareerProfile) {
-		this.candidateDesiredCareerProfile = candidateDesiredCareerProfile;
-	}
-	
+//	private CandidateSkills candidateSkills;
+//	private CandidateEmploymentDetails candidateEmploymentDetails;
+//	private CandidateLanguages candidateLanguages;
+//	private CandidateEducationDetails candidateEducationDetails;
+//	private CandidateCertificates candidateCertificates;
+//	private CandidatePersonalDetails candidatePersonalDetails;
+//	private CandidateDesiredCareerProfile candidateDesiredCareerProfile;
+//	
 	
 	
 	

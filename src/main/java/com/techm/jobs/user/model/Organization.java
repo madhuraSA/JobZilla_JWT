@@ -11,12 +11,12 @@ public class Organization {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
-	String organizationName;
-	String email;
-	String GSTIN;
-	String password;
-	String contactPerson;
-	String phoneNumber;
+	private String organizationName;
+	private String email;
+	private String GSTIN;
+	private String password;
+	private String contactPerson;
+	private String phoneNumber;
 	public Integer getId() {
 		return id;
 	}
@@ -59,6 +59,8 @@ public class Organization {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
+	
+	
 	
 }
 

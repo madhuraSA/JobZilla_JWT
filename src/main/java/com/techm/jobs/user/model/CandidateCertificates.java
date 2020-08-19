@@ -6,15 +6,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name ="candidate_certificates")
 public class CandidateCertificates {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 
 	private Integer candidateId;
-	private Integer certificationId;
+	private int certificationId;
 	private String issueingOrg;
 	private Date issueingDate;
 	private Date exprirationDate;
@@ -62,6 +64,11 @@ public class CandidateCertificates {
 	public void setCredentialURL(String credentialURL) {
 		this.credentialURL = credentialURL;
 	}
+	public CandidateCertificates() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
 	
 	
 	

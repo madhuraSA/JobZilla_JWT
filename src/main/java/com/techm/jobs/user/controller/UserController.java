@@ -34,7 +34,7 @@ public ResponseEntity<ResponseModel> addOrganizationDetails (@RequestBody Organi
 	//return "Organization : "+org.getOrganizationName()+" has been added";
 }
 
-@RequestMapping(value = "/organization", method = RequestMethod.GET)
+@RequestMapping(value = "/allorganizations", method = RequestMethod.GET)
 @ResponseBody
 public ResponseEntity<ResponseModel> getAllOrganization(){	 
 	return userServiceImp.getOrganizations(); 
@@ -42,19 +42,48 @@ public ResponseEntity<ResponseModel> getAllOrganization(){
 
 @ResponseBody
 @RequestMapping(value = "/user", method = RequestMethod.POST)
-public void addUser (@RequestBody User user){
-	userServiceImp.addUser(user);
-	
-	}
+public ResponseEntity<ResponseModel> addUser(@RequestBody User user){
+	return userServiceImp.addUser(user);
+}
 
 @ResponseBody
-@RequestMapping(value = "/user", method = RequestMethod.GET)
-public List<User> getAllUser(){	 
+@RequestMapping(value = "/userById", method = RequestMethod.GET)
+public ResponseEntity<ResponseModel> getUserById(@RequestParam Integer userId){
+	return userServiceImp.getUserById(userId);
+}
+
+@ResponseBody
+@RequestMapping(value = "/user", method = RequestMethod.PUT)
+public ResponseEntity<ResponseModel> updateUser(@RequestBody User user){
+	return userServiceImp.updateUser(user);
+}
+
+@ResponseBody
+@RequestMapping(value = "/userById", method = RequestMethod.DELETE)
+public ResponseEntity<ResponseModel> deleteUserById(@RequestParam Integer userId){
+	return userServiceImp.deleteUserById(userId);
+}
+
+@ResponseBody
+@RequestMapping(value = "/multipleUsersById", method = RequestMethod.DELETE)
+public ResponseEntity<ResponseModel> deleteMultipleUsersById (@RequestBody List<Integer> userIds){
+	return userServiceImp.deleteMultipleUsersById(userIds);
+}
+
+@ResponseBody
+@RequestMapping(value = "/allUsers", method = RequestMethod.GET)
+public ResponseEntity<ResponseModel> getAllUser(){	 
 	return userServiceImp.getUsers(); 
 }
 
 @ResponseBody
-@RequestMapping(value = "/login", method = RequestMethod.PUT)
+@RequestMapping(value = "/user", method = RequestMethod.GET)
+public ResponseEntity<ResponseModel> searchUser(@RequestParam String searchParameter){	 
+	return userServiceImp.searchUser(searchParameter); 
+}
+
+@ResponseBody
+@RequestMapping(value = "/login", method = RequestMethod.GET)
 public ResponseEntity<ResponseModel> login(@RequestParam String userName, @RequestParam String password){	 
 	return userServiceImp.login(userName, password); 
 }

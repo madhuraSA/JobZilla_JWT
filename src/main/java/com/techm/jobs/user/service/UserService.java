@@ -10,10 +10,15 @@ import com.techm.jobs.user.model.User;
 
 public interface UserService {
 
-	public void addUser(User user);
+	public ResponseEntity<ResponseModel> addUser(User user);
+	public ResponseEntity<ResponseModel> getUserById(Integer id);
+	public ResponseEntity<ResponseModel> updateUser(User user);
+	public ResponseEntity<ResponseModel> deleteUserById(Integer userId);
+	public ResponseEntity<ResponseModel> deleteMultipleUsersById(List<Integer> userIds);
+	public ResponseEntity<ResponseModel> getUsers();
+	public ResponseEntity<ResponseModel> searchUser(String searchParameter);
 	public ResponseEntity<ResponseModel> addOrganization(Organization org);
 	public ResponseEntity<ResponseModel> getOrganizations();
-	public List<User> getUsers();
 	public ResponseEntity<ResponseModel> login(String userName, String password);
 	
 }

@@ -119,7 +119,7 @@ public class UserServiceImp implements UserService{
 		user.setUserName(org.getEmail());
 		user.setPassword(org.getPassword());
 		user.setUserRole("Owner");
-		user.setOrgnaizationInd("Yes");
+		user.setOrgnaizationId(organization.getId());
 		userRepo.save(user);
 		
 		if(organization.getId() != null){

@@ -13,6 +13,8 @@ public class User {
 	private String userName;
 	private String password;
 	private String userRole;
+	private Integer orgnaizationId;
+	private Integer supervisorId;
 	public Integer getId() {
 		return id;
 	}
@@ -37,12 +39,16 @@ public class User {
 	public void setUserRole(String userRole) {
 		this.userRole = userRole;
 	}
-	public String getOrgnaizationInd() {
-		return orgnaizationInd;
+	public Integer getOrgnaizationId() {
+		return orgnaizationId;
 	}
-	public void setOrgnaizationInd(String orgnaizationInd) {
-		this.orgnaizationInd = orgnaizationInd;
+	public void setOrgnaizationId(Integer orgnaizationId) {
+		this.orgnaizationId = orgnaizationId;
 	}
-	private String orgnaizationInd;
-
+	public Integer getSupervisorId() {
+		return supervisorId;
+	}
+	public void setSupervisorId(Integer supervisorId) {
+		this.supervisorId = supervisorId;
+	}
 }

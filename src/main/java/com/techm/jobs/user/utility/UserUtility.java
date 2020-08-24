@@ -18,9 +18,9 @@ public class UserUtility {
 		{
 			exixtingUser.setUserRole(userUpdate.getUserRole());	
 		}
-		if(userUpdate.getOrgnaizationInd() != null)
+		if(userUpdate.getOrgnaizationId() != null)
 		{
-			exixtingUser.setOrgnaizationInd(userUpdate.getOrgnaizationInd());	
+			exixtingUser.setOrgnaizationId(userUpdate.getOrgnaizationId());	
 		}
 		
 		

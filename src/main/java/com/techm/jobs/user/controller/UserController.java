@@ -31,7 +31,6 @@ EmailUtility emailUtility;
 @RequestMapping(value = "/signup", method = RequestMethod.POST)
 public ResponseEntity<ResponseModel> addOrganizationDetails (@RequestBody Organization organization){
 	return  userServiceImp.addOrganization(organization); 
-	//return "Organization : "+org.getOrganizationName()+" has been added";
 }
 
 @RequestMapping(value = "/allorganizations", method = RequestMethod.GET)
@@ -47,7 +46,7 @@ public ResponseEntity<ResponseModel> addUser(@RequestBody User user){
 }
 
 @ResponseBody
-@RequestMapping(value = "/userById", method = RequestMethod.GET)
+@RequestMapping(value = "/user", method = RequestMethod.GET)
 public ResponseEntity<ResponseModel> getUserById(@RequestParam Integer userId){
 	return userServiceImp.getUserById(userId);
 }
@@ -77,7 +76,7 @@ public ResponseEntity<ResponseModel> getAllUser(){
 }
 
 @ResponseBody
-@RequestMapping(value = "/user", method = RequestMethod.GET)
+@RequestMapping(value = "/searchUser", method = RequestMethod.GET)
 public ResponseEntity<ResponseModel> searchUser(@RequestParam String searchParameter){	 
 	return userServiceImp.searchUser(searchParameter); 
 }

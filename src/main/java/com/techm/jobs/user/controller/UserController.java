@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.techm.jobs.user.model.Email;
+import com.techm.jobs.user.model.EmailNotification;
 import com.techm.jobs.user.model.Organization;
 import com.techm.jobs.user.model.ResponseModel;
 import com.techm.jobs.user.model.User;
+import com.techm.jobs.user.service.NotificationService;
 import com.techm.jobs.user.service.UserServiceImp;
 import com.techm.jobs.user.utility.EmailUtility;
 
@@ -27,6 +29,9 @@ UserServiceImp userServiceImp;
 
 @Autowired
 EmailUtility emailUtility;
+
+@Autowired
+NotificationService notificationService;
 
 @RequestMapping(value = "/signup", method = RequestMethod.POST)
 public ResponseEntity<ResponseModel> addOrganizationDetails (@RequestBody Organization organization){
@@ -93,4 +98,9 @@ public void sendEmail (@RequestBody Email email) {
 	
 }
 
+@ResponseBody
+@RequestMapping(value = "/notificationSetting", method = RequestMethod.POST)
+public void notificationSetting (@RequestBody EmailNotification emailNotification) {
+	notificationService.updatecandidateId(emailNotification);
+}
 }

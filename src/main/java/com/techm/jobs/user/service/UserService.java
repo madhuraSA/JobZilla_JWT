@@ -15,6 +15,7 @@ public interface UserService {
 	public ResponseEntity<ResponseModel> updateUser(User user);
 	public ResponseEntity<ResponseModel> deleteUserById(Integer userId);
 	public ResponseEntity<ResponseModel> deleteMultipleUsersById(List<Integer> userIds);
+	public ResponseEntity<ResponseModel> getAllUsersByRole(Integer userId);
 	public ResponseEntity<ResponseModel> getUsers();
 	public ResponseEntity<ResponseModel> searchUser(String searchParameter);
 	public ResponseEntity<ResponseModel> addOrganization(Organization org);

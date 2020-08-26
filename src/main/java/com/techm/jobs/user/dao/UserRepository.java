@@ -22,6 +22,16 @@ public interface UserRepository extends JpaRepository<User, Integer>{
 
 	@Transactional
 	@Modifying
-	@Query("select u from User u where u.userName like %?1% or u.userRole like %?1%") //or u.userRole like ?1%")
+	@Query("select u from User u where u.userName like %?1% or u.email like %?1% or u.contactNumber like %?1%") //or u.userRole like ?1%")
 	public List<User> searchUser(String searchParameter);
+
+	@Transactional
+	@Modifying
+	@Query("select u from User u where u.orgnaizationId = ?1") 
+	public List<User> findAllUsersbyOrgnaizationId(Integer orgnaizationId);
+
+	@Transactional
+	@Modifying
+	@Query("select u from User u where u.supervisorId = ?1 and u.orgnaizationId = ?2") 
+	public List<User> findAllUsersbySupervisorIdAndOrganizationId(Integer supervisorId, Integer orgnaizationId);
 }

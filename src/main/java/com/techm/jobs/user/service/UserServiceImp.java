@@ -1,6 +1,7 @@
 package com.techm.jobs.user.service;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -99,6 +100,30 @@ public class UserServiceImp implements UserService{
 		return new ResponseEntity<ResponseModel>(response, HttpStatus.OK);
 	}
 	
+	public ResponseEntity<ResponseModel> getAllUsersByRole(Integer userId) {
+		ResponseModel response = new ResponseModel();
+		List<User> allusers = new ArrayList();
+		Optional<User> user = userRepo.findById(userId);
+		if(user.isPresent()){
+		if(user.get().getUserRole().equalsIgnoreCase("Owner")){
+			 allusers = (List<User>)userRepo.findAllUsersbyOrgnaizationId(user.get().getOrgnaizationId());	
+		}else 
+		{
+			 allusers = (List<User>)userRepo.findAllUsersbySupervisorIdAndOrganizationId(user.get().getSupervisorId(),user.get().getOrgnaizationId());
+		}
+			
+		}
+		//List<User> allusers = (List<User>)userRepo.findAll();
+		if (allusers.isEmpty()) {
+			response.setResponseCode(HttpStatus.NO_CONTENT.toString());
+			response.setResponseDescription("User Details not present");
+			return new ResponseEntity<ResponseModel>(response, HttpStatus.NO_CONTENT);
+		}
+		response.setResponseCode(HttpStatus.OK.toString());
+		response.setResponseObject(allusers);
+		return new ResponseEntity<ResponseModel>(response, HttpStatus.OK);
+	}
+	
 	public ResponseEntity<ResponseModel> getUsers() {
 		ResponseModel response = new ResponseModel();
 		List<User> allusers = (List<User>)userRepo.findAll();
@@ -118,6 +143,8 @@ public class UserServiceImp implements UserService{
 		User user = new User();
 		user.setUserName(org.getEmail());
 		user.setPassword(org.getPassword());
+		user.setEmail(org.getEmail());
+		user.setContactNumber(org.getPhoneNumber());
 		user.setUserRole("Owner");
 		user.setOrgnaizationId(organization.getId());
 		userRepo.save(user);

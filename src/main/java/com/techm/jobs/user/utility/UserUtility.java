@@ -4,25 +4,36 @@ import com.techm.jobs.user.model.User;
 
 public class UserUtility {
 
-	public static void updateExistingUser(User exixtingUser, User userUpdate) {
+	public static void updateExistingUser(User existingUser, User userUpdate) {
 		// TODO Auto-generated method stub
 		if(userUpdate.getUserName() != null)
 		{
-			exixtingUser.setUserName(userUpdate.getUserName());	
+			existingUser.setUserName(userUpdate.getUserName());	
 		}
 		if(userUpdate.getPassword() != null)
 		{
-			exixtingUser.setPassword(userUpdate.getPassword());	
+			existingUser.setPassword(userUpdate.getPassword());	
 		}
 		if(userUpdate.getUserRole() != null)
 		{
-			exixtingUser.setUserRole(userUpdate.getUserRole());	
+			existingUser.setUserRole(userUpdate.getUserRole());	
+		}
+		if(userUpdate.getEmail() != null)
+		{
+			existingUser.setEmail(userUpdate.getEmail());
+		}
+		if(userUpdate.getContactNumber() != null)
+		{
+			existingUser.setContactNumber(userUpdate.getContactNumber());
 		}
 		if(userUpdate.getOrgnaizationId() != null)
 		{
-			exixtingUser.setOrgnaizationId(userUpdate.getOrgnaizationId());	
+			existingUser.setOrgnaizationId(userUpdate.getOrgnaizationId());	
 		}
-		
+		if(userUpdate.getSupervisorId() != null)
+		{
+			existingUser.setSupervisorId(userUpdate.getSupervisorId());	
+		}
 		
 	}
 

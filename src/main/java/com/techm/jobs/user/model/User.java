@@ -13,6 +13,8 @@ public class User {
 	private String userName;
 	private String password;
 	private String userRole;
+	private String email;
+	private String contactNumber;
 	private Integer orgnaizationId;
 	private Integer supervisorId;
 	public Integer getId() {
@@ -38,6 +40,18 @@ public class User {
 	}
 	public void setUserRole(String userRole) {
 		this.userRole = userRole;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getContactNumber() {
+		return contactNumber;
+	}
+	public void setContactNumber(String contactNumber) {
+		this.contactNumber = contactNumber;
 	}
 	public Integer getOrgnaizationId() {
 		return orgnaizationId;

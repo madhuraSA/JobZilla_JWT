@@ -81,6 +81,12 @@ public ResponseEntity<ResponseModel> getAllUser(){
 }
 
 @ResponseBody
+@RequestMapping(value = "/allUsersByRole", method = RequestMethod.GET)
+public ResponseEntity<ResponseModel> getAllUsersByRole(@RequestParam Integer userId){	 
+	return userServiceImp.getAllUsersByRole(userId); 
+}
+
+@ResponseBody
 @RequestMapping(value = "/searchUser", method = RequestMethod.GET)
 public ResponseEntity<ResponseModel> searchUser(@RequestParam String searchParameter){	 
 	return userServiceImp.searchUser(searchParameter); 
